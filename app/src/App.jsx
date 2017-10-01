@@ -3,9 +3,9 @@ import './styles/global.css'
 import FolderChooser from './components/FolderChooser.jsx'
 import { connect } from 'react-redux'
 import config from 'config'
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
-
+import BigCalendar from 'react-big-calendar'
+import moment from 'moment'
+import CommitLogger from './commit-logger'
 
 
 let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k])
@@ -20,8 +20,9 @@ class App extends Component {
               { !this.props.app && <FolderChooser></FolderChooser> }
 
               { this.props.app &&  <BigCalendar
-                events={[]}
+                events={CommitLogger.getEvents()}
                 defaultDate={new Date}
+                view="month"
               />}
 
             </div>

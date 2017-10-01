@@ -8,6 +8,5 @@ export default function hook(path) {
 
   echo "*****" >> ${path};
   echo $curdate >> ${path};
-  echo $parent >> ${path};
-  echo "*****" >> ${path};`
+  echo $parent >> ${path};`
 }

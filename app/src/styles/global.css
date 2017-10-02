@@ -31,10 +31,13 @@ body {
 }
 #app {
     color: #2c3e50;
-    max-width: 800px;
     min-width: 800px;
-    margin: 5%;
-    font-family: Source Sans Pro, Helvetica, sans-serif;
+    max-height: 600px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'PT Sans Narrow', Source Sans Pro, Helvetica, sans-serif;
     text-align: center;
 }
 #app p {
@@ -59,7 +62,6 @@ ul {
   in-width: 800px;
     min-height: 600px;
     overflow-y: auto;
-    padding: 2%;
 }
 .rbc-toolbar {
   height: 100px;
@@ -70,7 +72,7 @@ ul {
 .rbc-toolbar-label {
   color: white;
   font-size: 36px;
-  font-family: PT Sans;
+  font-family: 'PT Sans Narrow', PT Sans;
   font-weight: 700;
 }
 .rbc-month-view .rbc-header+.rbc-header , .rbc-month-view .rbc-header {
@@ -80,3 +82,35 @@ ul {
     color: #f44336;
     font-weight: 300;
 }
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#app {
+  /* Disable text selection, or your app will feel like a web page */
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+
+  /* Cover the whole window */
+  height: 100%;
+
+  /* Make sure this matches the native window background color that you pass to
+   * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
+  
+  /* Smoother startup */
+  animation: fadein 0.5s;
+}
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+.folderChooser {
+    position: relative;
+    margin: 0;
+    margin-top: -257px;
+  }

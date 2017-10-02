@@ -15,7 +15,7 @@ class FolderChooser extends Component {
 
     render () {
         return (
-            <div>
+            <div className="FolderChooser">
             { !this.props.folder && <h3>Choose repositories folder</h3> }
               <div>
                 { !this.props.folder && <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onClick={this.selectFolder}>Choose</button> }

@@ -1,12 +1,15 @@
 export default function hook(path) {
+ let normalizedPath = path.replace(/\\/g, '/')
+ let interpreter = /^win/.test(process.platform) ? '#!C:/Program\ Files/Git/usr/bin/sh.exe' : '#!/bin/sh'
+
   return `
-  #!/bin/sh
+  ${interpreter}
 
   #получаем текущий коммит
   parent=\`git rev-parse --abbrev-ref HEAD\`;
   curdate=\`date +"%D %T"\`;
 
-  echo "*****" >> ${path};
-  echo $curdate >> ${path};
-  echo $parent >> ${path};`
+  echo "*****" >> ${normalizedPath};
+  echo $curdate >> ${normalizedPath};
+  echo $parent >> ${normalizedPath};`
 }
